@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lova Testar</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/shakespeare-apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/shakespeare-favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/shakespeare-favicon-16x16.png">
+    <meta name="theme-color" content="#231f42">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"> </script>
+</head>
+<body>
+    <header>
+        <h1 class="heading">SCHNELL FOTO </h1>
+    </header>
+
+    <main class="wrapper">
+        <h2 class="insult"></h2>
+        <h3 class="play"></h3>
+    </main>
+
+    <section class="wrapper">
+        <video id="me" class="camera"></video>
+        <img src="images/icons/shakespeare-android-chrome-512x512 (kopia).png" alt="" class="shakespeare hide">
+    </section>
+
+    <img src="" id="photo"  style="width: 100%;"
+    />
+
+
+    <button id="addImage" class="button"><img src="images/camera.svg" id="camera-icon"> </button> <br> 
+    <button onclick="greyScale()"> The hoods </button>
+
+    <button onclick="gamma()"> Gamma </button>
+    <button onclick="brightMe()"> Sonnenbrise </button>
+
+
+    <button onclick="removeFilter()"> ta bort filter </button>
+
+
+
+    <!-- <image  id="image" src="images/dansnallen.jpg"
+    
+    ></image> -->
+
+
+
+    <!-- Här ska presets ligga-->
+    <!-- 
+       <button onclick="testReset()"> test reset  </button> 
+    <button onclick="brightness()"> The hoods </button> -->
+
+
+ 
+
+
+    <p>Custom range slider:</p>
+    <input id="mySlider" type="range" min="1" max="100" value="50" class="slider" id="myRange">
+  </div>
+
+
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>

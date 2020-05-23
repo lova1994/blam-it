@@ -1,0 +1,24 @@
+body {
+    font-family: 'jetbrains mono', sans-serif;
+    text-align: center;
+    background-color: #222;
+    color: hotpink;
+
+}
+
+.camera {
+    width: 80%;
+}
+
+button {
+    width: 80px;
+    font-size: 1.2em;
+    border-radius: 20px;
+    background-color: hotpink;
+    border:none;
+
+}
+
+#camera-icon {
+    width:40px;
+}
