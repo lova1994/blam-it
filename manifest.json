@@ -1,25 +1,22 @@
 {
-    "name": "Lova Testar ",
-    "short_name": "Lova",
-    "start_url": "/",
-    "background_color": "#fef6e8",
-    "theme_color": "#660200",
-    "orientation": "any",
+    "name": "SchnellFoto",
+    "short_name": "SchnellFoto",
+    "theme_color": "#FF69B4",
+    "background_color": "#FF69B4",
     "display": "standalone",
-    "dir": "ltr",
-    "lang": "en-US",
-    "description": "Lova Testar",
-    "scope": "/",
+    "Scope": "/",
+    "start_url": "/",
     "icons": [
-        {
-            "src": "images/icons/sf-192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "images/icons/ssf-192.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ]
-}
+      {
+        "src": "images/icons/sf-icon-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "image/icons/sf-icon-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ],
+    "splash_pages": null
+  }

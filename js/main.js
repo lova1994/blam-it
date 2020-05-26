@@ -36,6 +36,14 @@ async function getMedia() {
 
   // Tar kort
 async function captureImage(stream) {
+
+  // if (document.querySelector('canvas') !== null) {
+  //   document.querySelector('#photo').removeAttribute('data-caman-id');
+  //   const switch_img = imgUrl
+  //   renderCanvas('#photo', switch_img);
+  // }
+
+
     const mediaTrack = stream.getVideoTracks()[0];
     console.log("TAR KORT NU")
     console.log(mediaTrack);
@@ -47,16 +55,10 @@ async function captureImage(stream) {
     document.querySelector('#photo').src = imgUrl;
   }
 
-
-
-
   document.querySelector('#addImage').addEventListener('click', event => {
     //document.querySelector('.shakespeare').classList.toggle('hide');
     captureImage(stream);
 })
-
-
-
 
 
 // Testar filter
@@ -90,8 +92,6 @@ function greyScale() {
       }
   
 
-
-
       function brightMe() {
       
         Caman("#photo", function () {
@@ -102,7 +102,15 @@ function greyScale() {
 
       }
 
-
+function filterMe() {
+  Caman('#photo', function (){
+    this.brightness(10);
+    this.contrast(30);
+    this.sepia(60);
+    this.saturation(-30);
+    this.render();
+  });
+}
     
 
 // gör en reset och kör den innan nytt filter :)
@@ -125,16 +133,11 @@ function greyScale() {
 // }
 
 
-
-
-// function testReset() {
-    
-//     let gamma = gamma();
-//     console.log(gamma)
-          
-        
-//     }
-
-
+let button = document.getElementById('btn-download');
+button.addEventListener('click', () => {
+    let canvas = document.getElementById("photo");
+    let dataURL = canvas.toDataURL('image/png');
+    button.href = dataURL;
+});
 
   getMedia();

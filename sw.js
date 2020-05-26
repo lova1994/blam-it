@@ -11,11 +11,9 @@ self.addEventListener('install', event => {
     );
     self.skipWaiting();
 });
-
 self.addEventListener('activate', event => {
     console.log('SW activated at: ', new Date().toLocaleTimeString());
 });
-
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)

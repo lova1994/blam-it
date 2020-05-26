@@ -6,9 +6,9 @@
     <title>Lova Testar</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/shakespeare-apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/shakespeare-favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/shakespeare-favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/icons/sf-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/sf-icon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/sf-icon-16x16.png">
     <meta name="theme-color" content="#231f42">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"> </script>
 </head>
@@ -23,7 +23,7 @@
     </main>
 
     <section class="wrapper">
-        <video id="me" class="camera"></video>
+        <video id="me" class="camera" ></video>
         <img src="images/icons/shakespeare-android-chrome-512x512 (kopia).png" alt="" class="shakespeare hide">
     </section>
 
@@ -36,26 +36,9 @@
 
     <button onclick="gamma()"> Gamma </button>
     <button onclick="brightMe()"> Sonnenbrise </button>
-
-
+    <button onclick="filterMe()"> Emo Kid </button>
     <button onclick="removeFilter()"> ta bort filter </button>
-
-
-
-    <!-- <image  id="image" src="images/dansnallen.jpg"
-    
-    ></image> -->
-
-
-
-    <!-- Här ska presets ligga-->
-    <!-- 
-       <button onclick="testReset()"> test reset  </button> 
-    <button onclick="brightness()"> The hoods </button> -->
-
-
- 
-
+    <a href="#" class="btn" id="btn-download" download="wunderbar.png">Download Image</a>
 
     <p>Custom range slider:</p>
     <input id="mySlider" type="range" min="1" max="100" value="50" class="slider" id="myRange">
