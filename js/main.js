@@ -1,3 +1,11 @@
+// import { requestNotificationPermission, createNotification } from './notifications.js';
+// import push from './push-notifications.js';
+
+const downloadButton = document.getElementById('btn-download');
+
+
+
+
 function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('../sw.js')
@@ -23,6 +31,11 @@ async function getMedia() {
     }
   }
 
+
+
+
+// SKA fixa funktion så att man kan ta en ny bild efter lagt
+  
   // let element = document.getElementById(photo);
   // if (element) {
   //   console.log(832543298492)
@@ -34,7 +47,14 @@ async function getMedia() {
   //   } }
 
 
+
+
+
   // Tar kort
+
+
+
+
 async function captureImage(stream) {
 
   // if (document.querySelector('canvas') !== null) {
@@ -133,11 +153,23 @@ function filterMe() {
 // }
 
 
-let button = document.getElementById('btn-download');
-button.addEventListener('click', () => {
+
+// kollar om offline: här ska  knappen disablas 
+if (!navigator.onLine) {
+  console.log("Du är offline")
+  
+}
+
+if (navigator.onLine) {
+  console.log("Du är online")
+
+
+downloadButton.addEventListener('click', () => {
     let canvas = document.getElementById("photo");
     let dataURL = canvas.toDataURL('image/png');
-    button.href = dataURL;
+    downloadButton.href = dataURL;
 });
+}
 
-  getMedia();
+
+  // getMedia();

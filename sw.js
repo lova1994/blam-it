@@ -31,7 +31,13 @@ self.addEventListener('fetch', event => {
     )
 });
 
-// VAD GÖR DENNA KOD ?!?!?!?!?!?! ahahahsdhuiahduiaz
+self.addEventListener('push', (event) => {
+    if (event.data) {
+        createNotification(event.data.text());
+    }
+})
+
+//Lyssnar efter push notiser
 async function updateCache(request) {
     return fetch(request)
     .then((response) => {
