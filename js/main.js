@@ -1,16 +1,23 @@
-// import { requestNotificationPermission, createNotification } from './notifications.js';
-// import push from './push-notifications.js';
-
 const downloadButton = document.getElementById('btn-download');
-
 const videoEl = document.getElementById('me');
 const captureMsgEl = document.getElementById('captureMsg')
 let filterBtn = document.getElementsByClassName('filterBtn')
 
-
 removeFilterButtons();
 hideDownloadBtn();
 hideGoBack();
+
+function count() {
+var seconds = document.getElementById("countdown").textContent;
+var countdown = setInterval(function() {
+    seconds--;
+    document.getElementById("countdown").textContent = seconds;
+    if (seconds <= 0) clearInterval(countdown);
+}, 1000);
+
+setTimeout(function(){  captureImage(stream); }, 3000)
+
+}
 
 
 function registerServiceWorker() {
@@ -39,31 +46,13 @@ async function getMedia() {
     }
   }
 
-
-
-
-// SKA fixa funktion så att man kan ta en ny bild efter lagt
-  
-  // let element = document.getElementById(photo);
-  // if (element) {
-  //   console.log(832543298492)
-
-  //   function removeElement(photo) {
-  //       // Removes an element from the document
-  //       var element = document.getElementById(photo);
-  //       element.parentNode.removeChild(element);
-  //   } }
+  function countdown() {
+    console.log("hejsan!!!!")
+    setTimeout(function(){  captureImage(stream); }, 3000);
+  }
 
   // Tar kort
 async function captureImage(stream) {
-
-  // if (document.querySelector('canvas') !== null) {
-  //   document.querySelector('#photo').removeAttribute('data-caman-id');
-  //   const switch_img = imgUrl
-  //   renderCanvas('#photo', switch_img);
-  // }
-
-
     const mediaTrack = stream.getVideoTracks()[0];
     videoEl.remove()
     const captureImg = new ImageCapture(mediaTrack);
@@ -71,28 +60,36 @@ async function captureImage(stream) {
     const imgUrl = URL.createObjectURL(photo);
     console.log("Bildurl" + imgUrl);
     document.querySelector('#photo').src = imgUrl;
-  
-    captureMsgEl.innerHTML = "Nice pic! Now try a filter &#128525;"
+    captureMsgEl.innerHTML = capturedMsg();
     hideCamera();
     showFilterBtns();
     showGoBack();
     showDownloadBtn();
-
-
-
   }
 
   document.querySelector('#addImage').addEventListener('click', event => {
     //document.querySelector('.shakespeare').classList.toggle('hide');
-    captureImage(stream);
+
+    // Här ska nedräkningen läggas
+      countdown()
+
 })
 
 
+function capturedMsg() {
+let msg = ["Nice pic! Now try a filter &#128525;", "That's hot as Paris Hilton would have said. Try one of the filters now &#128526;" ,
+"Cute pic babe! Add a filter and you're good to go. &#128527;",
+"Wow, lookin good! Try a filter and it will be the cherry on the top &#128521;"
+ ]
+ const a = msg[Math.floor(Math.random() * msg.length )]
+ return a; 
+}
+ 
 function goBack() {
   location.reload();
 }
 
-// FILTER
+// FILTERS
 function greyScale() {
     Caman("#photo", function () {
       this.revert()
@@ -108,13 +105,6 @@ function greyScale() {
       });
     }
     
-
-  //   function gamma() {
-  //     Caman("#photo", function () {
-  //   this.gamma(1.5).render();
-  // });
-  //   }
-
     function gamma() {
       Caman("#photo", function () {
         this.revert()
@@ -126,21 +116,70 @@ function greyScale() {
       function brightMe() {
       
         Caman("#photo", function () {
+          this.revert()
           this.brightness(10);
           this.contrast(20);
           this.render();
         });
       }
 
-function filterMe() {
+function emoKid() {
   Caman('#photo', function (){
-    this.brightness(10);
-    this.contrast(30);
-    this.sepia(60);
-    this.saturation(-30);
+    this.revert()
+    this.brightness(30);
+    this.contrast(90);
+    this.sepia(120);
+    this.saturation(-90);
     this.render();
   });
 }
+
+function pinkBubbleGum() {
+  Caman('#photo', function (){
+    this.revert()
+    this.brightness(40);
+    this.contrast(90);
+    this.sepia(120);
+    this.saturation(-90);
+    this.colorize("#FF69B4", 50);
+    this.render();
+  });
+}
+
+function greenBubbleGum() {
+  Caman('#photo', function (){
+    this.revert()
+    this.brightness(40);
+    this.contrast(90);
+    this.sepia(120);
+    this.saturation(-90);
+    this.colorize("#39ff14", 50);
+    this.render();
+  });
+}
+
+function cottonCandy() {
+  console.log(1232352)
+  Caman("#photo", function () {
+    this.revert()
+    this.brightness(15);
+    this.colorize("#FF69B4", 50);
+    this.render();
+  });
+}
+
+
+function invert() {
+  console.log(1232352)
+  Caman("#photo", function () {
+    this.revert()
+    this.invert();
+    this.colorize("#39ff14", 50);
+    this.render();
+
+  });
+}
+
 
 // kollar om offline: här ska  knappen disablas 
 if (!navigator.onLine) {

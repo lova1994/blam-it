@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lova Testar</title>
+    <title>Blam it | Almost like your average photo app but worse</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="manifest" href="manifest.json">
     <link rel="apple-touch-icon" sizes="180x180" href="images/icons/sf-icon-180x180.png">
@@ -14,43 +14,54 @@
 </head>
 <body>
     <header>
-        <h1 class="heading">SCHNELL FOTO </h1>
+        <h1 class="heading"> Blam it! </h1>
+        
     </header>
 
-    <main class="wrapper">
-        <h2 class="insult"></h2>
-        <h3 class="play"></h3>
-    </main>
-
-    <section class="wrapper">
+    <main class="wrapper"> 
+    <section class="video-container">
+        <span id="countdown">3</span>
         <video id="me" class="camera" ></video>
-        <img src="images/icons/shakespeare-android-chrome-512x512 (kopia).png" alt="" class="shakespeare hide">
     </section>
 
     <img src="" id="photo"  style="width: 100%;"
     />
 <p id="captureMsg">  </p>
-
-
     <!-- <button onclick="getMedia()"> Use the camera </button> -->
-
     <button id="addImage" class="button"><img src="images/camera.svg" id="camera-icon"> </button> <br> 
+
+
+
+    
+    <br><br>
+
+    <button onclick="count()" > COUNT </button>
+
+
+    <div class="filter-wrapper">
     <button onclick="greyScale()" class="filterBtn" > The hoods </button>
     <button onclick="gamma()" class="filterBtn"> Gamma </button>
     <button onclick="brightMe()" class="filterBtn"> Sonnenbrise </button>
-    <button onclick="filterMe()" class="filterBtn"> Emo Kid </button>
-    <button onclick="removeFilter()" class="filterBtn"> ta bort filter </button>
+    <button onclick="emoKid()" class="filterBtn"> Emo Kid </button>
+    <button onclick="pinkBubbleGum()" class="filterBtn"> Pink Bubble Gum </button>
+    <button onclick="greenBubbleGum()" class="filterBtn"> Green Bubble Gum </button>
+    <button onclick="cottonCandy()" class="filterBtn"> Cotton Candy </button>
+    <button onclick="invert()" class="filterBtn"> Invert me </button>
+     </div>
 
-   <br> <a href="#" class="btn" id="btn-download" download="wunderbar.png"  >Download Image</a>
+     <div class="button-wrapper">
+        <button onclick="goBack()" id="goBack"><img src='images/back.svg' class="btn-icon"> Go Back</button>
+    <button onclick="removeFilter()" class="filterBtn"> Clear filters </button>
+    <a href="#" class="btn" id="btn-download" download="wunderbar.png"> <img src='images/download.svg' class="btn-icon"> Download Image</a>
 
-
-   <button onclick="goBack()" id="goBack">Go Back</button>
+  
+     </div>
 
 
     <!-- <p>Custom range slider:</p>
     <input id="mySlider" type="range" min="1" max="100" value="50" class="slider" id="myRange"> -->
   </div>
-
+</main>
 
     <script type="text/javascript" src="js/main.js"></script>
 </body>

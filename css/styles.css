@@ -3,6 +3,7 @@ body {
     text-align: center;
     background-color: #222;
     color: hotpink;
+    overflow: hidden;
 
 }
 
@@ -11,20 +12,43 @@ body {
 }
 
 button, .btn {
-    width: 80px;
+    width: 150px;
     font-size: 1.2em;
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: hotpink;
-    color: #fff;
-
+    color: #222;
     border:none;
     cursor: pointer;
+    padding: 1%;
+    margin: 10px;
+    box-shadow: 0px 8px 15px rgba(253, 242, 247, 0.2);
+
+}
+
+.video-container {
+    background-color: #222;
+    width:100%;
+
+}
+
+#countdown {
+    font-size: 3em;
+
+}
+
+.btn-icon {
+width:18px;
+}
+
+.btn:hover, button:hover {
+    box-shadow: 0px 8px 15px rgba(253, 242, 247, 0.404);
 
 }
 
 #camera-icon {
     width:40px;
 }
+
 
 a {
     text-decoration: none;
@@ -34,5 +58,10 @@ a {
 
 .hide {
     display:none;
+}
+
+#photo {
+    width: 80%;
+    background-color: #fff;
 }
 
