@@ -29,20 +29,26 @@
 
     <img src="" id="photo"  style="width: 100%;"
     />
+<p id="captureMsg">  </p>
 
-    <button onclick="getMedia()"> Use the camera </button>
+
+    <!-- <button onclick="getMedia()"> Use the camera </button> -->
 
     <button id="addImage" class="button"><img src="images/camera.svg" id="camera-icon"> </button> <br> 
-    <button onclick="greyScale()"> The hoods </button>
+    <button onclick="greyScale()" class="filterBtn" > The hoods </button>
+    <button onclick="gamma()" class="filterBtn"> Gamma </button>
+    <button onclick="brightMe()" class="filterBtn"> Sonnenbrise </button>
+    <button onclick="filterMe()" class="filterBtn"> Emo Kid </button>
+    <button onclick="removeFilter()" class="filterBtn"> ta bort filter </button>
 
-    <button onclick="gamma()"> Gamma </button>
-    <button onclick="brightMe()"> Sonnenbrise </button>
-    <button onclick="filterMe()"> Emo Kid </button>
-    <button onclick="removeFilter()"> ta bort filter </button>
-    <a href="#" class="btn" id="btn-download" download="wunderbar.png">Download Image</a>
+   <br> <a href="#" class="btn" id="btn-download" download="wunderbar.png"  >Download Image</a>
 
-    <p>Custom range slider:</p>
-    <input id="mySlider" type="range" min="1" max="100" value="50" class="slider" id="myRange">
+
+   <button onclick="goBack()" id="goBack">Go Back</button>
+
+
+    <!-- <p>Custom range slider:</p>
+    <input id="mySlider" type="range" min="1" max="100" value="50" class="slider" id="myRange"> -->
   </div>
 
 

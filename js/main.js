@@ -4,8 +4,13 @@
 const downloadButton = document.getElementById('btn-download');
 
 const videoEl = document.getElementById('me');
+const captureMsgEl = document.getElementById('captureMsg')
+let filterBtn = document.getElementsByClassName('filterBtn')
 
 
+removeFilterButtons();
+hideDownloadBtn();
+hideGoBack();
 
 
 function registerServiceWorker() {
@@ -20,6 +25,7 @@ registerServiceWorker();
 
 // Denna funktion använder kameran och lägger in det i elementet #me
 async function getMedia() {
+
     try {
       stream = await navigator.mediaDevices.getUserMedia({ video: true});
       const videoElem = document.querySelector('#me');
@@ -60,14 +66,20 @@ async function captureImage(stream) {
 
     const mediaTrack = stream.getVideoTracks()[0];
     videoEl.remove()
-    console.log("TAR KORT NU")
-    console.log(mediaTrack);
     const captureImg = new ImageCapture(mediaTrack);
     const photo = await captureImg.takePhoto()
-    console.log(photo)
     const imgUrl = URL.createObjectURL(photo);
     console.log("Bildurl" + imgUrl);
     document.querySelector('#photo').src = imgUrl;
+  
+    captureMsgEl.innerHTML = "Nice pic! Now try a filter &#128525;"
+    hideCamera();
+    showFilterBtns();
+    showGoBack();
+    showDownloadBtn();
+
+
+
   }
 
   document.querySelector('#addImage').addEventListener('click', event => {
@@ -76,7 +88,11 @@ async function captureImage(stream) {
 })
 
 
-// Testar filter
+function goBack() {
+  location.reload();
+}
+
+// FILTER
 function greyScale() {
     Caman("#photo", function () {
       this.revert()
@@ -143,4 +159,42 @@ downloadButton.addEventListener('click', () => {
 });
 }
 
+function removeFilterButtons() {
+const buttons = document.querySelectorAll('.filterBtn');
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.add('hide');
+}
+};
 
+function showFilterBtns() {
+  const buttons = document.querySelectorAll('.filterBtn');
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].classList.remove('hide');
+}
+}
+
+function hideDownloadBtn() {
+  let element = document.getElementById("btn-download");
+  element.classList.add("hide");
+}
+
+function showDownloadBtn() {
+  let element = document.getElementById("btn-download");
+  element.classList.remove("hide");
+}
+
+function hideGoBack(){
+  let btn = document.getElementById("goBack");
+  btn.classList.add("hide");
+} 
+
+function showGoBack(){
+  let btn = document.getElementById("goBack");
+  btn.classList.remove("hide");
+} 
+
+function hideCamera() {
+  let element = document.getElementById('addImage');
+  element.parentNode.removeChild(element);
+}
+getMedia()

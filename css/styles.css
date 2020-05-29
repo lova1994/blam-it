@@ -18,6 +18,7 @@ button, .btn {
     color: #fff;
 
     border:none;
+    cursor: pointer;
 
 }
 
@@ -30,3 +31,8 @@ a {
     color: #fff;
     padding:1%;
 }
+
+.hide {
+    display:none;
+}
+
