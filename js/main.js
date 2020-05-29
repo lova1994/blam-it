@@ -3,6 +3,8 @@
 
 const downloadButton = document.getElementById('btn-download');
 
+const videoEl = document.getElementById('me');
+
 
 
 
@@ -46,15 +48,7 @@ async function getMedia() {
   //       element.parentNode.removeChild(element);
   //   } }
 
-
-
-
-
   // Tar kort
-
-
-
-
 async function captureImage(stream) {
 
   // if (document.querySelector('canvas') !== null) {
@@ -65,6 +59,7 @@ async function captureImage(stream) {
 
 
     const mediaTrack = stream.getVideoTracks()[0];
+    videoEl.remove()
     console.log("TAR KORT NU")
     console.log(mediaTrack);
     const captureImg = new ImageCapture(mediaTrack);
@@ -119,7 +114,6 @@ function greyScale() {
           this.contrast(20);
           this.render();
         });
-
       }
 
 function filterMe() {
@@ -131,28 +125,6 @@ function filterMe() {
     this.render();
   });
 }
-    
-
-// gör en reset och kör den innan nytt filter :)
-
-
-// function gamma() {
-//     if (value == 0) {
-//         this.revert();
-//       }
-//       console.log(value - oldValue);
-//       //Applicera differensen av förgående värde och nuvarande värde
-//       this.gamma(value - oldValue);
-//       //Spara undan nuvarande värde 
-//       oldValue = value;
-//       this.render();
-//     // här ska reset köras
-// Caman("#photo", function () {
-//     this.gamma(1.5).render();
-//   });
-// }
-
-
 
 // kollar om offline: här ska  knappen disablas 
 if (!navigator.onLine) {
@@ -172,4 +144,3 @@ downloadButton.addEventListener('click', () => {
 }
 
 
-  // getMedia();
