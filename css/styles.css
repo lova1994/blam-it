@@ -1,14 +1,43 @@
 body {
     font-family: 'jetbrains mono', sans-serif;
-    text-align: center;
+    /* text-align: center; */
     background-color: #222;
-    color: hotpink;
-    overflow: hidden;
+    color: #ff69b4;
+}
 
+.heading {
+    text-align: center;
+    font-size: 3em;
+}
+
+.wrapper {
+    height: 100vh;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    background-color: #222;
+    text-align: center;
+}
+
+/* video {
+    width:400px;
+} */
+
+.video-container {
+ 
+}
+
+
+#countdown {
+    height: 100%;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    font-size: 3em;
 }
 
 .camera {
-    width: 80%;
+    width: 100%;
 }
 
 button, .btn {
@@ -25,16 +54,9 @@ button, .btn {
 
 }
 
-.video-container {
-    background-color: #222;
-    width:100%;
 
-}
 
-#countdown {
-    font-size: 3em;
 
-}
 
 .btn-icon {
 width:18px;
@@ -57,7 +79,7 @@ a {
 }
 
 .hide {
-    display:none;
+    display:none!important;
 }
 
 #photo {

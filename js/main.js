@@ -1,24 +1,35 @@
 const downloadButton = document.getElementById('btn-download');
 const videoEl = document.getElementById('me');
 const captureMsgEl = document.getElementById('captureMsg')
-let filterBtn = document.getElementsByClassName('filterBtn')
+const filterBtn = document.getElementsByClassName('filterBtn')
+// const countdownSeconds = document.getElementsByClassName('countdown')
 
+
+function hideCountdown() {
+  console.log("tar bort")
+  const countdownSeconds = document.getElementById('countdown')
+  countdownSeconds.classList.add("hide");
+}
+
+function showCountdown() {
+  const countdownSeconds = document.getElementById('countdown')
+  countdownSeconds.classList.remove("hide");
+}
+
+hideCountdown()
 removeFilterButtons();
 hideDownloadBtn();
 hideGoBack();
 
-function count() {
+function countDown() {
+  showCountdown() 
 var seconds = document.getElementById("countdown").textContent;
 var countdown = setInterval(function() {
     seconds--;
     document.getElementById("countdown").textContent = seconds;
     if (seconds <= 0) clearInterval(countdown);
 }, 1000);
-
-setTimeout(function(){  captureImage(stream); }, 3000)
-
 }
-
 
 function registerServiceWorker() {
     if ('serviceWorker' in navigator) {
@@ -47,6 +58,7 @@ async function getMedia() {
   }
 
   function countdown() {
+    countDown()
     console.log("hejsan!!!!")
     setTimeout(function(){  captureImage(stream); }, 3000);
   }
@@ -62,14 +74,13 @@ async function captureImage(stream) {
     document.querySelector('#photo').src = imgUrl;
     captureMsgEl.innerHTML = capturedMsg();
     hideCamera();
+    hideCountdown() 
     showFilterBtns();
     showGoBack();
     showDownloadBtn();
   }
 
   document.querySelector('#addImage').addEventListener('click', event => {
-    //document.querySelector('.shakespeare').classList.toggle('hide');
-
     // Här ska nedräkningen läggas
       countdown()
 
@@ -125,7 +136,7 @@ function greyScale() {
 
 function emoKid() {
   Caman('#photo', function (){
-    this.revert()
+    // this.revert()
     this.brightness(30);
     this.contrast(90);
     this.sepia(120);
@@ -159,9 +170,8 @@ function greenBubbleGum() {
 }
 
 function cottonCandy() {
-  console.log(1232352)
   Caman("#photo", function () {
-    this.revert()
+    // this.revert()
     this.brightness(15);
     this.colorize("#FF69B4", 50);
     this.render();
@@ -236,4 +246,5 @@ function hideCamera() {
   let element = document.getElementById('addImage');
   element.parentNode.removeChild(element);
 }
+
 getMedia()
