@@ -5,7 +5,6 @@ const filterBtn = document.getElementsByClassName('filterBtn')
 // const countdownSeconds = document.getElementsByClassName('countdown')
 
 function hideCountdown() {
-  console.log("tar bort")
   const countdownSeconds = document.getElementById('countdown')
   countdownSeconds.classList.add("hide");
 }
@@ -50,7 +49,6 @@ async function getMedia() {
       videoElem.addEventListener('loadedmetadata', () => {
         videoElem.play();
       })
-      console.log(stream);
     } catch (error) {
         console.log(error);
     }
@@ -58,7 +56,6 @@ async function getMedia() {
 
   function countdown() {
     countDown()
-    console.log("hejsan!!!!")
     setTimeout(function(){  captureImage(stream); }, 3000);
   }
 
@@ -69,7 +66,6 @@ async function captureImage(stream) {
     const captureImg = new ImageCapture(mediaTrack);
     const photo = await captureImg.takePhoto()
     const imgUrl = URL.createObjectURL(photo);
-    console.log("Bildurl" + imgUrl);
     document.querySelector('#photo').src = imgUrl;
     captureMsgEl.innerHTML = capturedMsg();
     hideCamera();
@@ -92,7 +88,6 @@ let msg = ["Nice pic! Now try a filter &#128525;", "That's hot as Paris Hilton w
 "Ohlala! Try to add a filter and you will SLAY! &#127752;"
  ]
  const a = msg[Math.floor(Math.random() * msg.length )]
- console.log(a)
  return a; 
 }
  
@@ -105,7 +100,6 @@ function greyScale() {
     Caman("#photo", function () {
       this.revert()
         this.greyscale().render();
-        console.log(this.greyscale())
       });
     }
 
@@ -177,9 +171,7 @@ function cottonCandy() {
   });
 }
 
-
 function invert() {
-  console.log(1232352)
   Caman("#photo", function () {
     this.revert()
     this.invert();
@@ -192,13 +184,9 @@ function invert() {
 
 // kollar om offline: här ska  knappen disablas (doesnt make any sense though men stog i uppgiften att det skulle vara så lmao XD)
 if (!navigator.onLine) {
-  console.log("Du är offline")
 }
 
 if (navigator.onLine) {
-  console.log("Du är online")
-
-
 downloadButton.addEventListener('click', () => {
     let canvas = document.getElementById("photo");
     let dataURL = canvas.toDataURL('image/png');
