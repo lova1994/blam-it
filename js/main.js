@@ -4,8 +4,6 @@ const captureMsgEl = document.getElementById('captureMsg')
 const filterBtn = document.getElementsByClassName('filterBtn')
 // const countdownSeconds = document.getElementsByClassName('countdown')
 
-
-
 function hideCountdown() {
   console.log("tar bort")
   const countdownSeconds = document.getElementById('countdown')
@@ -84,7 +82,6 @@ async function captureImage(stream) {
   document.querySelector('#addImage').addEventListener('click', event => {
     // Här ska nedräkningen läggas
       countdown()
-
 })
 
 function capturedMsg() {
@@ -93,7 +90,6 @@ let msg = ["Nice pic! Now try a filter &#128525;", "That's hot as Paris Hilton w
 "Wow, lookin good! Try a filter and it will be the cherry on the top &#128521;",
 "Great shot! Now add a filter &#127752;",
 "Ohlala! Try to add a filter and you will SLAY! &#127752;"
-
  ]
  const a = msg[Math.floor(Math.random() * msg.length )]
  console.log(a)
@@ -128,8 +124,7 @@ function greyScale() {
       }
   
 
-      function brightMe() {
-      
+      function sonnebrise() {
         Caman("#photo", function () {
           this.revert()
           this.brightness(10);
