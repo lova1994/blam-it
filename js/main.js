@@ -5,6 +5,7 @@ const filterBtn = document.getElementsByClassName('filterBtn')
 // const countdownSeconds = document.getElementsByClassName('countdown')
 
 
+
 function hideCountdown() {
   console.log("tar bort")
   const countdownSeconds = document.getElementById('countdown')
@@ -86,13 +87,16 @@ async function captureImage(stream) {
 
 })
 
-
 function capturedMsg() {
 let msg = ["Nice pic! Now try a filter &#128525;", "That's hot as Paris Hilton would have said. Try one of the filters now &#128526;" ,
 "Cute pic babe! Add a filter and you're good to go. &#128527;",
-"Wow, lookin good! Try a filter and it will be the cherry on the top &#128521;"
+"Wow, lookin good! Try a filter and it will be the cherry on the top &#128521;",
+"Great shot! Now add a filter &#127752;",
+"Ohlala! Try to add a filter and you will SLAY! &#127752;"
+
  ]
  const a = msg[Math.floor(Math.random() * msg.length )]
+ console.log(a)
  return a; 
 }
  
@@ -191,10 +195,9 @@ function invert() {
 }
 
 
-// kollar om offline: här ska  knappen disablas 
+// kollar om offline: här ska  knappen disablas (doesnt make any sense though men stog i uppgiften att det skulle vara så lmao XD)
 if (!navigator.onLine) {
   console.log("Du är offline")
-  
 }
 
 if (navigator.onLine) {
