@@ -14,19 +14,19 @@ body {
     height: 100vh;
     /* display: flex; */
     /* justify-content: center; */
-    /* align-items: center; */
+    /* align-items: center;  */
     background-color: #222;
     text-align: center;
 }
 
-/* video {
-    width:400px;
-} */
+video, #photo {
+    max-width:1200px;
 
-.function-btn {
-    background-color: #FF1493!important;
 }
 
+.function-btn {
+    background-color: rgb(250, 112, 227)!important;
+}
 
 #countdown {
     height: 100%;
